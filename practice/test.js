@@ -2,6 +2,8 @@
 
 // console.log(name);
 
+// try running this file with 'node test.js'
+
 const greet = (name) => {
     console.log(`Hello ${name}`);
 };
