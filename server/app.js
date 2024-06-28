@@ -14,7 +14,7 @@ app.listen(3000);
 
 app.get('/', (req, res) => {
     // res.send('<h1>Home</h1>');
-    res.render('index');
+    res.render('index', {title: 'Home'});
 })
 
 app.get('/about', (req, res) => {
