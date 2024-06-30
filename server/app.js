@@ -12,6 +12,14 @@ app.set('view engine', 'ejs');
 
 app.listen(3000);
 
+app.use((req,res, next) => {
+    console.log('new request made: ' + req.url);
+    console.log('host: ', req.hostname);
+    console.log('path: ', req.path);
+    console.log('method: ', req.method);
+    next();
+})
+
 app.get('/', (req, res) => {
     // res.send('<h1>Home</h1>');
     res.render('index', {title: 'Home'});
@@ -33,6 +41,7 @@ app.get('/blogs/create', (req, res) => {
 
 // 404 page
 
-app.use((req, res) => {
+app.use((req, res, next) => {
     res.status(404).render('404');
+    next();
 })
